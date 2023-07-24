@@ -15,19 +15,37 @@ class ResCompany(models.Model):
     _inherit = "res.company"
 
     SCSS_TEMPLATE = """
+        div.MessagingMenuContainer:hover{
+            background-color: %(color_navbar_bg_hover)s !important;
+          }
+        a.o_ActivityMenuView_dropdownToggle:hover{
+            background-color: %(color_navbar_bg_hover)s !important;
+          }
+        span.oe_topbar_name:hover{
+            background-color: %(color_navbar_bg_hover)s !important;
+        }
+
+        button.dropdown-toggle:hover:not(div.o-dropdown:nth-child(1) > button:nth-child(1)):not(div.d-inline-block:nth-child(2) > button:nth-child(1)){
+            background-color: %(color_navbar_bg_hover)s !important;
+        }
+        
+        .dropdown-item.o_nav_entry:hover{
+            background-color: %(color_navbar_bg_hover)s !important;
+            
+        }
+
+        .o_main_navbar .dropdown-toggle:not(.o_ActivityMenuView_dropdownToggle):not(.o_MessagingMenu_toggler):not(button.o-dropdown--narrow),
+        .o_main_navbar .o_nav_entry{
+            color:%(color_navbar_text)s !important;
+        }
+
         .o_main_navbar {
-          background-color: %(color_navbar_bg)s !important;
+          background: %(color_navbar_bg)s !important;
           color: %(color_navbar_text)s !important;
 
           > .o_menu_brand {
             color: %(color_navbar_text)s !important;
             &:hover, &:focus, &:active, &:focus:active {
-              background-color: %(color_navbar_bg_hover)s !important;
-            }
-          }
-
-          .show {
-            .dropdown-toggle {
               background-color: %(color_navbar_bg_hover)s !important;
             }
           }
